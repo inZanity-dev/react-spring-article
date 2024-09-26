@@ -7,6 +7,7 @@ import { Header } from "../components/utils/Header";
 import { TableOfContents } from "../components/utils/TableOfContents";
 import { EventsArticle } from "../components/articles/EventsArticle";
 import { ScrollTopButton } from "../components/utils/ScrollTopButton";
+import { NavigationButton } from "../components/utils/NavigationButton";
 
 export const Home = () => {
 	return (
@@ -31,6 +32,7 @@ export const Home = () => {
 					<ConfigObjectArticle />
 					<EventsArticle />
 					<ScrollTopButton />
+					<NavigationButton />
 				</main>
 			</body>
 		</html>

@@ -1,8 +1,8 @@
 import { animated } from "@react-spring/web";
 import { useHideableButton } from "../../hooks/useHideableButton";
 
-export const ScrollTopButton = () => {
-	const { buttonStyle, buttonApi } = useHideableButton({});
+export const NavigationButton = () => {
+	const { buttonStyle, buttonApi } = useHideableButton({bottom: "6rem",background: "#D6369F "});
 
 	const scrollToTop = () => {
 		window.scrollTo({
@@ -38,11 +38,13 @@ export const ScrollTopButton = () => {
 				viewBox="0 0 24 24"
 				fill="none"
 				stroke="currentColor"
-				strokeWidth="5"
+				strokeWidth="4"
 				strokeLinecap="round"
 				strokeLinejoin="round"
 			>
-				<path d="M18 15l-6-6-6 6" />
+				<line x1="3" y1="4" x2="21" y2="4" />
+				<line x1="3" y1="12" x2="21" y2="12" />
+				<line x1="3" y1="20" x2="21" y2="20" />
 			</svg>
 		</animated.button>
 	);

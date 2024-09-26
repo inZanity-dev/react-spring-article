@@ -36,10 +36,12 @@ export const EventsArticle = () => {
 				</p>
 				<br />
 				<p
-				style={{
-					paddingBottom: "0.75rem"
-				}}
-				>The main events you can listen for are:</p>
+					style={{
+						paddingBottom: "0.75rem"
+					}}
+				>
+					The main events you can listen for are:
+				</p>
 				<ul style={ulStyle}>
 					<li style={liStyle}>
 						<code style={codeTagStyle}>onStart</code> - Called when
@@ -79,9 +81,9 @@ export const EventsArticle = () => {
 				)}
 			>
 				<p
-				style={{
-					paddingBottom: "0.75rem"
-				}}
+					style={{
+						paddingBottom: "0.75rem"
+					}}
 				>
 					These event listeners all have access to the following
 					arguments:
