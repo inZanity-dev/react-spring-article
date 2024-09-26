@@ -53,7 +53,7 @@ export const IntroArticle = () => {
 			</Prism>
 			<section
 				style={explanationStyle(
-					"linear-gradient(135deg, oklch(90% 0.05 250), oklch(85% 0.03 260))"
+					"linear-gradient(135deg, oklch(95% 0.08 250), oklch(75% 0.1 230))"
 				)}
 			>
 				<p
@@ -104,7 +104,7 @@ export const IntroArticle = () => {
 			</Prism>
 			<p
 				style={explanationStyle(
-					"linear-gradient(135deg, oklch(90% 0.05 250), oklch(85% 0.03 260))"
+					"linear-gradient(135deg, oklch(95% 0.08 250), oklch(75% 0.1 230))"
 				)}
 			>
 				<code style={codeTagStyle}>[name]Api.start()</code> is the
@@ -122,7 +122,7 @@ export const IntroArticle = () => {
 			</Prism>
 			<p
 				style={explanationStyle(
-					"linear-gradient(135deg, oklch(90% 0.05 250), oklch(85% 0.03 260))"
+					"linear-gradient(135deg, oklch(95% 0.08 250), oklch(75% 0.1 230))"
 				)}
 			>
 				The <code style={codeTagStyle}>animated</code> function from
@@ -132,10 +132,42 @@ export const IntroArticle = () => {
 				to accept animated spring properties that interpolate over time.
 				<br />
 				<br />
+				To learn more about how React Spring does animation of css
+				properties check out the{" "}
+				<a
+					href="https://www.react-spring.dev/docs/concepts/animated-elements"
+					style={{
+						color: "#007bff",
+						textDecoration: "none",
+						fontWeight: "bold"
+					}}
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					Animated Elements Documentation
+				</a>
+				<br />
+				<br />
 				The <code style={codeTagStyle}>to</code> function transforms the
 				current value of the spring into a new format. In this case,
 				it's particularly useful for converting the spring value into a
 				string format, which can then be displayed in the HTML.
+				<br />
+				<br />
+				To learn more about how React Spring does interpolation of the
+				values check out the{" "}
+				<a
+					href="https://www.react-spring.dev/docs/advanced/interpolation"
+					style={{
+						color: "#007bff",
+						textDecoration: "none",
+						fontWeight: "bold"
+					}}
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					Interpolation Documentation
+				</a>
 			</p>
 		</article>
 	);

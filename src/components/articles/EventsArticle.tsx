@@ -35,7 +35,11 @@ export const EventsArticle = () => {
 					start on the spring API.
 				</p>
 				<br />
-				<p>The main events you can listen for are:</p>
+				<p
+				style={{
+					paddingBottom: "0.75rem"
+				}}
+				>The main events you can listen for are:</p>
 				<ul style={ulStyle}>
 					<li style={liStyle}>
 						<code style={codeTagStyle}>onStart</code> - Called when
@@ -71,10 +75,14 @@ export const EventsArticle = () => {
 			</Prism>
 			<section
 				style={explanationStyle(
-					"linear-gradient(135deg, oklch(90% 0.05 250), oklch(85% 0.03 260))"
+					"linear-gradient(135deg, oklch(95% 0.08 250), oklch(75% 0.1 230))"
 				)}
 			>
-				<p>
+				<p
+				style={{
+					paddingBottom: "0.75rem"
+				}}
+				>
 					These event listeners all have access to the following
 					arguments:
 				</p>
@@ -98,7 +106,7 @@ export const EventsArticle = () => {
 						<code style={codeTagStyle}>stop</code>, and{" "}
 						<code style={codeTagStyle}>pause</code> that you can use
 						to control the spring's behavior. This allows you to
-                        create complex and layered animations.
+						create complex and layered animations.
 					</li>
 					<li style={liStyle}>
 						<code style={codeTagStyle}>item</code> - This variable
@@ -111,6 +119,21 @@ export const EventsArticle = () => {
 						the DOM.
 					</li>
 				</ul>
+				<p>
+					To see all of the available event listeners check out the{" "}
+					<a
+						href="https://www.react-spring.dev/docs/advanced/interpolation"
+						style={{
+							color: "#007bff",
+							textDecoration: "none",
+							fontWeight: "bold"
+						}}
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						Events Documentation
+					</a>
+				</p>
 			</section>
 		</article>
 	);

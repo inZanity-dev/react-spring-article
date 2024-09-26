@@ -49,7 +49,7 @@ export const ConfigObjectArticle = () => {
 			</Prism>
 			<section
 				style={explanationStyle(
-					"linear-gradient(135deg, oklch(90% 0.05 250), oklch(85% 0.03 260))"
+					"linear-gradient(135deg, oklch(95% 0.08 250), oklch(75% 0.1 230))"
 				)}
 			>
 				<p>
@@ -133,7 +133,7 @@ export const ConfigObjectArticle = () => {
 			</Prism>
 			<p
 				style={explanationStyle(
-					"linear-gradient(135deg, oklch(90% 0.05 250), oklch(85% 0.03 260))"
+					"linear-gradient(135deg, oklch(95% 0.08 250), oklch(75% 0.1 230))"
 				)}
 			>
 				We can update the config when we call the API's{" "}

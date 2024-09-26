@@ -19,7 +19,10 @@ export const ScrollTopButton = () => {
 		border: "none",
 		borderRadius: "50%",
 		cursor: "pointer",
-		opacity: buttonSprings.opacity
+		opacity: buttonSprings.opacity,
+		pointerEvents: buttonSprings.opacity.to((o) =>
+			o === 0 ? "none" : "auto"
+		),
 	};
 
 	useEffect(() => {
@@ -45,6 +48,7 @@ export const ScrollTopButton = () => {
 			top: 0,
 			behavior: "smooth"
 		});
+		document.body.style.cursor = 'default';
 	};
 
 	const handleHover = () => {
