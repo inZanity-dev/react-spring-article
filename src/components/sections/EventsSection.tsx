@@ -1,5 +1,3 @@
-import { Prism } from "react-syntax-highlighter";
-import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/prism";
 import {
 	articleStyle,
 	codeTagStyle,
