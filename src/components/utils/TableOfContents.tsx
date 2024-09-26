@@ -3,34 +3,33 @@ import { CSSProperties } from "react";
 const tocStyle: CSSProperties = {
 	padding: "1rem",
 	width: "90%",
-	margin: "auto",
+	margin: "auto"
 };
 
 const tocHeadingStyle: CSSProperties = {
 	fontSize: "2rem",
-	marginBottom: "1rem",
+	marginBottom: "1rem"
 };
 
 const tocListStyle: CSSProperties = {
 	listStyleType: "none",
-	paddingLeft: 0,
+	paddingLeft: 0
 };
 
 const tocListItemStyle: CSSProperties = {
-	marginBottom: "0.5rem",
+	marginBottom: "0.5rem"
 };
 
 const tocLinkStyle: CSSProperties = {
 	textDecoration: "none",
 	color: "#0366d6",
-	fontSize: "1rem",
+	fontSize: "1rem"
 };
-
 
 const tocData = [
 	{ id: "getting-started", label: "Getting Started" },
 	{ id: "config-object", label: "Configuration Object" },
-	{ id: "spring-events", label: "Spring Events" },
+	{ id: "spring-events", label: "Spring Events" }
 ];
 
 export const TableOfContents = () => {

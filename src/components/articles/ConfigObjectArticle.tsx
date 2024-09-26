@@ -3,11 +3,12 @@ import {
 	articleStyle,
 	codeTagStyle,
 	explanationStyle,
+	highlighterStyle,
 	liStyle,
 	ulStyle
 } from "../../styles/blogStyles";
 import { Example1 } from "../examples/Example1";
-import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { configAPICode, durationCode } from "../../utils/codeStrings";
 import { Example2 } from "../examples/Example2";
 
@@ -42,12 +43,7 @@ export const ConfigObjectArticle = () => {
 				language="tsx"
 				style={nightOwl}
 				showLineNumbers
-				customStyle={{
-					borderRadius: "6px",
-					padding: "1rem",
-					boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
-					marginTop: "2rem"
-				}}
+				customStyle={highlighterStyle(true)}
 			>
 				{durationCode}
 			</Prism>
@@ -131,12 +127,7 @@ export const ConfigObjectArticle = () => {
 				language="tsx"
 				style={nightOwl}
 				showLineNumbers
-				customStyle={{
-					borderRadius: "6px",
-					padding: "1rem",
-					boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
-					marginTop: "2rem"
-				}}
+				customStyle={highlighterStyle(true)}
 			>
 				{configAPICode}
 			</Prism>
@@ -145,12 +136,13 @@ export const ConfigObjectArticle = () => {
 					"linear-gradient(135deg, oklch(90% 0.05 250), oklch(85% 0.03 260))"
 				)}
 			>
-				We can update the config when we call the API's <code style={codeTagStyle}>start()</code> method.
-				This can be useful when we want to change the spring's behavior
-				dynamically, without reseting the spring. In this example, we change the spring's duration
-				based on the input value when the user clicks the box. Since we
-				are not using a state variable we remove the need to re-render
-				when we change the duration.
+				We can update the config when we call the API's{" "}
+				<code style={codeTagStyle}>start()</code> method. This can be
+				useful when we want to change the spring's behavior dynamically,
+				without reseting the spring. In this example, we change the
+				spring's duration based on the input value when the user clicks
+				the box. Since we are not using a state variable we remove the
+				need to re-render when we change the duration.
 			</p>
 		</article>
 	);

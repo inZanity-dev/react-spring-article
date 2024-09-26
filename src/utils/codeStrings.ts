@@ -57,4 +57,26 @@ const handleClick = () => {
         backgroundColor: getRandomRGBAColor(true),
         config: { duration: newDuration }
     });
-};`
+};`;
+
+export const eventsCode = `const [boxSpring, boxApi] = useSpring(() => ({
+    backgroundColor: "rgba(0,0,255,1)",
+    onStart(result, ctrl, item) {
+        const logMessage = \`Animation started with value : \${result.value.backgroundColor}\`;
+        if (onStartInfoRef.current) {
+            onStartInfoRef.current.innerText = logMessage;
+        }
+    },
+    onChange(result, ctrl, item) {
+        const logMessage = \`Animation changed to value : \${result.value.backgroundColor}\`;
+        if (onChangeInfoRef.current) {
+            onChangeInfoRef.current.innerText = logMessage;
+        }
+    },
+    onRest(result, ctrl, item) {
+        const logMessage = \`Animation finished at value : \${result.value.backgroundColor}\`;
+        if (onRestInfoRef.current) {
+            onRestInfoRef.current.innerText = logMessage;
+        }
+    }
+}));`;

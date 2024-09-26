@@ -2,10 +2,11 @@ import {
 	articleStyle,
 	codeTagStyle,
 	explanationStyle,
+	highlighterStyle,
 	liStyle,
 	ulStyle
 } from "../../styles/blogStyles";
-import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { Example0 } from "../examples/Example0";
 import {
 	animatedCode,
@@ -46,12 +47,7 @@ export const IntroArticle = () => {
 				language="tsx"
 				style={nightOwl}
 				showLineNumbers
-				customStyle={{
-					borderRadius: "6px",
-					padding: "1rem",
-					boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
-					marginTop: "2rem"
-				}}
+				customStyle={highlighterStyle(true)}
 			>
 				{useSpringCode}
 			</Prism>
@@ -78,7 +74,12 @@ export const IntroArticle = () => {
 					</li>
 				</ul>
 				<aside style={{ paddingTop: "0.75rem" }}>
-					<span style={{ color: "#d73a49", fontWeight: "bold" }}>
+					<span
+						style={{
+							color: "#d73a49",
+							fontWeight: "bold"
+						}}
+					>
 						*{" "}
 					</span>
 					You can name the variables whatever you like, but it's my
@@ -97,12 +98,7 @@ export const IntroArticle = () => {
 				language="tsx"
 				style={nightOwl}
 				showLineNumbers
-				customStyle={{
-					borderRadius: "6px",
-					padding: "1rem",
-					boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
-					marginTop: "2rem"
-				}}
+				customStyle={highlighterStyle()}
 			>
 				{apiStartCode}
 			</Prism>
@@ -120,12 +116,7 @@ export const IntroArticle = () => {
 				language="tsx"
 				style={nightOwl}
 				showLineNumbers
-				customStyle={{
-					borderRadius: "6px",
-					padding: "1rem",
-					boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
-					marginTop: "2rem"
-				}}
+				customStyle={highlighterStyle()}
 			>
 				{animatedCode}
 			</Prism>

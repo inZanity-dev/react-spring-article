@@ -27,11 +27,12 @@ export const exampleBoxStyle: CSSProperties = {
 };
 
 export const explanationStyle = (
-	background = "transparent"
+	background = "transparent",
+	color = "#333"
 ): CSSProperties => ({
 	fontSize: "1.1rem",
 	lineHeight: "1.6",
-	color: "#333",
+	color,
 	textAlign: "justify",
 	background,
 	padding: "1rem",
@@ -63,3 +64,10 @@ export const codeTagStyle = {
 	backgroundColor: "lightgray",
 	padding: "0.2rem"
 };
+
+export const highlighterStyle = (needsTopMargin = false): CSSProperties => ({
+	borderRadius: "6px",
+	padding: "1rem",
+	boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+	marginTop: needsTopMargin ? "2rem" : 0
+});

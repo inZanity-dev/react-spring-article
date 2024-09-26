@@ -7,20 +7,20 @@ export const Example2 = () => {
 	const [boxSpring, boxApi] = useSpring(() => ({
 		backgroundColor: "rgba(0,0,255,1)"
 	}));
-    const inputRef = useRef<HTMLInputElement>(null);
+	const inputRef = useRef<HTMLInputElement>(null);
 	const handleClick = () => {
 		const newDuration = inputRef.current?.value
-        ? parseInt(inputRef.current.value, 10)
-        : 1000;
+			? parseInt(inputRef.current.value, 10)
+			: 1000;
 		boxApi.start({
-            backgroundColor: getRandomRGBAColor(true),
+			backgroundColor: getRandomRGBAColor(true),
 			config: { duration: newDuration }
 		});
 	};
-    
-    const renderCountRef = useRef(0);
-    renderCountRef.current += 1;
-    
+
+	const renderCountRef = useRef(0);
+	renderCountRef.current += 1;
+
 	return (
 		<section style={exampleBoxStyle}>
 			<p
