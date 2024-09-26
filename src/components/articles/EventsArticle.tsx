@@ -11,9 +11,9 @@ import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { configAPICode, durationCode } from "../../utils/codeStrings";
 import { Example2 } from "../examples/Example2";
 
-export const ConfigObjectArticle = () => {
+export const EventsArticle = () => {
 	return (
-		<article id="config-object" style={articleStyle}>
+		<article id="spring-events" style={articleStyle}>
 			<h3
 				style={{
 					fontSize: "2.5rem",
@@ -22,7 +22,7 @@ export const ConfigObjectArticle = () => {
 					color: "#333"
 				}}
 			>
-				The Config Object
+				Spring Events
 			</h3>
 			<p
 				style={explanationStyle(

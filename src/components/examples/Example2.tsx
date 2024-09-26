@@ -1,24 +1,26 @@
 import { animated, useSpring } from "@react-spring/web";
 import { exampleBoxStyle, outputStyle } from "../../styles/blogStyles";
 import { getRandomRGBAColor } from "../../utils/colors";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 
-export const Example0 = () => {
+export const Example2 = () => {
 	const [boxSpring, boxApi] = useSpring(() => ({
 		backgroundColor: "rgba(0,0,255,1)"
 	}));
-
-	const [buttonState, setButtonState] = useState(false);
-
-	const renderCountRef = useRef(0);
-	renderCountRef.current += 1;
-
+    const inputRef = useRef<HTMLInputElement>(null);
 	const handleClick = () => {
+		const newDuration = inputRef.current?.value
+        ? parseInt(inputRef.current.value, 10)
+        : 1000;
 		boxApi.start({
-			backgroundColor: getRandomRGBAColor(true)
+            backgroundColor: getRandomRGBAColor(true),
+			config: { duration: newDuration }
 		});
 	};
-
+    
+    const renderCountRef = useRef(0);
+    renderCountRef.current += 1;
+    
 	return (
 		<section style={exampleBoxStyle}>
 			<p
@@ -29,7 +31,7 @@ export const Example0 = () => {
 					color: "#333"
 				}}
 			>
-				Example 0: Try Me Out!
+				Example 2: Changing the Config Through the API
 			</p>
 
 			<animated.div
@@ -56,21 +58,17 @@ export const Example0 = () => {
 			<span style={outputStyle}>
 				Render Count : {renderCountRef.current}
 			</span>
-			<button
-				onClick={() => setButtonState((prev) => !prev)}
+			<input
+				type="number"
+				placeholder="1000"
+				ref={inputRef}
 				style={{
 					padding: "0.5rem 1rem",
-					backgroundColor: "#333",
-					color: "#fff",
-					borderRadius: "6px",
-					border: "none",
-					cursor: "pointer",
-					marginTop: "1rem",
-					width: "25%"
+					margin: "1rem 0",
+					fontSize: "1rem",
+					textAlign: "center"
 				}}
-			>
-				React State - {buttonState ? "True" : "False"}
-			</button>
+			/>
 		</section>
 	);
 };

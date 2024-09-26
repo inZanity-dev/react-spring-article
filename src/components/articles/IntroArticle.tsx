@@ -5,14 +5,14 @@ import {
 	liStyle,
 	ulStyle
 } from "../../styles/blogStyles";
-import SyntaxHighlighter from "react-syntax-highlighter";
-import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { Example0 } from "../examples/Example0";
 import {
 	animatedCode,
 	apiStartCode,
 	useSpringCode
 } from "../../utils/codeStrings";
+import { Prism } from "react-syntax-highlighter";
 
 export const IntroArticle = () => {
 	return (
@@ -42,8 +42,8 @@ export const IntroArticle = () => {
 				changes trigger a re-render.
 			</p>
 			<Example0 />
-			<SyntaxHighlighter
-				language="typescript"
+			<Prism
+				language="tsx"
 				style={nightOwl}
 				showLineNumbers
 				customStyle={{
@@ -54,8 +54,7 @@ export const IntroArticle = () => {
 				}}
 			>
 				{useSpringCode}
-			</SyntaxHighlighter>
-
+			</Prism>
 			<section
 				style={explanationStyle(
 					"linear-gradient(135deg, oklch(90% 0.05 250), oklch(85% 0.03 260))"
@@ -94,18 +93,19 @@ export const IntroArticle = () => {
 				</aside>
 			</section>
 
-			<SyntaxHighlighter
-				language="typescript"
+			<Prism
+				language="tsx"
 				style={nightOwl}
 				showLineNumbers
 				customStyle={{
 					borderRadius: "6px",
 					padding: "1rem",
-					boxShadow: "0 4px 12px rgba(0,0,0,0.1)"
+					boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+					marginTop: "2rem"
 				}}
 			>
 				{apiStartCode}
-			</SyntaxHighlighter>
+			</Prism>
 			<p
 				style={explanationStyle(
 					"linear-gradient(135deg, oklch(90% 0.05 250), oklch(85% 0.03 260))"
@@ -116,18 +116,19 @@ export const IntroArticle = () => {
 				the properties we want to animate. In this case, we are changing
 				the background color of the box to a random color.
 			</p>
-			<SyntaxHighlighter
-				language="typescript"
+			<Prism
+				language="tsx"
 				style={nightOwl}
 				showLineNumbers
 				customStyle={{
 					borderRadius: "6px",
 					padding: "1rem",
-					boxShadow: "0 4px 12px rgba(0,0,0,0.1)"
+					boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+					marginTop: "2rem"
 				}}
 			>
 				{animatedCode}
-			</SyntaxHighlighter>
+			</Prism>
 			<p
 				style={explanationStyle(
 					"linear-gradient(135deg, oklch(90% 0.05 250), oklch(85% 0.03 260))"
@@ -143,9 +144,7 @@ export const IntroArticle = () => {
 				The <code style={codeTagStyle}>to</code> function transforms the
 				current value of the spring into a new format. In this case,
 				it's particularly useful for converting the spring value into a
-				string format, which can then be displayed in the HTML. This is
-				helpful when you need to display the changing values directly on
-				the page as readable content.
+				string format, which can then be displayed in the HTML.
 			</p>
 		</article>
 	);

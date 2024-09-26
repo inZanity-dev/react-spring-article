@@ -5,6 +5,8 @@ import { Intro } from "../components/content/Intro";
 import { ConfigObjectArticle } from "../components/articles/ConfigObjectArticle";
 import { Header } from "../components/utils/Header";
 import { TableOfContents } from "../components/utils/TableOfContents";
+import { EventsArticle } from "../components/articles/EventsArticle";
+import { ScrollTopButton } from "../components/utils/ScrollTopButton";
 
 export const Home = () => {
 	return (
@@ -27,6 +29,8 @@ export const Home = () => {
 					<TableOfContents />
 					<IntroArticle />
 					<ConfigObjectArticle />
+					<EventsArticle />
+					<ScrollTopButton />
 				</main>
 			</body>
 		</html>

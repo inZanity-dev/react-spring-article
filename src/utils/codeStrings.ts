@@ -1,6 +1,6 @@
 export const useSpringCode = `const [boxSpring, boxApi] = useSpring(
     () => ({
-	    backgroundColor: blue,
+	    backgroundColor: "rgba(0,0,255,1)"
     }),
     []
 );`;
@@ -42,3 +42,19 @@ const [boxSpring, boxApi] = useSpring(
     }),
     [durationState]
 );`;
+
+export const configAPICode = `const [boxSpring, boxApi] = useSpring(() => ({
+    backgroundColor: "rgba(0,0,255,1)"
+}));
+
+const inputRef = useRef<HTMLInputElement>(null);
+
+const handleClick = () => {
+    const newDuration = inputRef.current?.value
+    ? parseInt(inputRef.current.value, 10)
+    : 1000;
+    boxApi.start({
+        backgroundColor: getRandomRGBAColor(true),
+        config: { duration: newDuration }
+    });
+};`

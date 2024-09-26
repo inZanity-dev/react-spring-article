@@ -1,5 +1,3 @@
-import { explanationStyle } from "../../styles/blogStyles";
-
 export const Intro = () => {
 	return (
 		<p
@@ -32,6 +30,20 @@ export const Intro = () => {
 			. I will explain each example in detail, and you'll be able to
 			follow along and experiment with the code yourself. At the end of
 			the article, you'll have a chance to try it out with your own ideas.
+			This entire example code can be found in{" "}
+			<a
+				href="https://github.com/alexkahndev/react-spring-article"
+				style={{
+					color: "#007bff",
+					textDecoration: "none",
+					fontWeight: "bold"
+				}}
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				This Repository
+			</a>
+			.
 		</p>
 	);
 };
