@@ -1,7 +1,10 @@
 import { useSpring, AnimatedProps } from "@react-spring/web";
 import { CSSProperties, useEffect } from "react";
 
-export const useHideableButton = ({bottom="2rem",background="#0366d6"}) => {
+export const useHideableButton = ({
+	bottom = "2rem",
+	background = "#0366d6"
+}) => {
 	const [buttonSprings, buttonApi] = useSpring(() => ({
 		opacity: 0,
 		config: { duration: 200 }

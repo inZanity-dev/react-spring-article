@@ -2,14 +2,16 @@ import { animated } from "@react-spring/web";
 import { useHideableButton } from "../../hooks/useHideableButton";
 
 export const NavigationButton = () => {
-	const { buttonStyle, buttonApi } = useHideableButton({bottom: "6rem",background: "#D6369F "});
+	const { buttonStyle, buttonApi } = useHideableButton({
+		bottom: "6rem",
+		background: "#D6369F "
+	});
 
 	const scrollToTop = () => {
 		window.scrollTo({
 			top: 0,
 			behavior: "smooth"
 		});
-		document.body.style.cursor = "default";
 	};
 
 	const handleHover = () => {

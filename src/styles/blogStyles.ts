@@ -15,7 +15,7 @@ export const articleStyle: CSSProperties = {
 	flexDirection: "column"
 };
 
-export const exampleBoxStyle: CSSProperties = {
+export const exampleBoxStyle = (needsBottomMargin = false):CSSProperties => ({
 	backgroundColor: "#f0f0f0",
 	padding: "2rem",
 	borderLeft: "16px solid #333",
@@ -23,8 +23,9 @@ export const exampleBoxStyle: CSSProperties = {
 	display: "flex",
 	flexDirection: "column",
 	alignItems: "center",
-	boxShadow: "0 4px 12px rgba(0,0,0,0.1)"
-};
+	boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+	marginBottom: needsBottomMargin ? "2rem" : "0"
+});
 
 export const explanationStyle = (
 	background = "transparent",
@@ -40,7 +41,7 @@ export const explanationStyle = (
 	margin: "2rem 0"
 });
 
-export const outputStyle = {
+export const outputStyle: CSSProperties = {
 	fontFamily: "monospace",
 	fontSize: "1.1rem"
 };
@@ -65,9 +66,10 @@ export const codeTagStyle = {
 	padding: "0.2rem"
 };
 
-export const highlighterStyle = (needsTopMargin = false): CSSProperties => ({
-	borderRadius: "6px",
+export const highlighterStyle : CSSProperties ={
+	borderBottomRightRadius: "8px",
+	borderBottomLeftRadius: "8px",
 	padding: "1rem",
 	boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
-	marginTop: needsTopMargin ? "2rem" : 0
-});
+	margin: "0"
+};

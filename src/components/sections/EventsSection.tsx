@@ -8,10 +8,11 @@ import {
 	liStyle,
 	ulStyle
 } from "../../styles/blogStyles";
-import { Example4 } from "../examples/Example4";
+import { Example3 } from "../examples/Example3";
 import { eventsCode } from "../../utils/codeStrings";
+import { PrismWCopy } from "../utils/PrismWCopy";
 
-export const EventsArticle = () => {
+export const EventsSection = () => {
 	return (
 		<article id="spring-events" style={articleStyle}>
 			<h3
@@ -57,7 +58,7 @@ export const EventsArticle = () => {
 					</li>
 				</ul>
 			</section>
-			<Example4 />
+			<Example3 />
 			<p
 				style={explanationStyle(
 					"linear-gradient(135deg, oklch(85% 0.3 20), oklch(80% 0.25 30))",
@@ -67,14 +68,12 @@ export const EventsArticle = () => {
 				<code style={codeTagStyle}>onStart</code> is called after the
 				first animation tick, this value is therefore considered dirty.
 			</p>
-			<Prism
+			<PrismWCopy
+				codeString={eventsCode}
 				language="tsx"
-				style={nightOwl}
 				showLineNumbers
-				customStyle={highlighterStyle()}
-			>
-				{eventsCode}
-			</Prism>
+				customStyle={highlighterStyle}
+			/>
 			<section
 				style={explanationStyle(
 					"linear-gradient(135deg, oklch(95% 0.08 250), oklch(75% 0.1 230))"

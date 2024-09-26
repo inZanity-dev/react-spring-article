@@ -3,7 +3,7 @@ import { exampleBoxStyle, outputStyle } from "../../styles/blogStyles";
 import { getRandomRGBAColor } from "../../utils/colors";
 import { useRef } from "react";
 
-export const Example4 = () => {
+export const Example3 = () => {
 	const onStartInfoRef = useRef<HTMLParagraphElement>(null);
 	const onChangeInfoRef = useRef<HTMLParagraphElement>(null);
 	const onRestInfoRef = useRef<HTMLParagraphElement>(null);
@@ -40,7 +40,7 @@ export const Example4 = () => {
 	renderCountRef.current += 1;
 
 	return (
-		<section style={exampleBoxStyle}>
+		<section style={exampleBoxStyle()}>
 			<p
 				style={{
 					fontSize: "1.4rem",
@@ -49,7 +49,7 @@ export const Example4 = () => {
 					color: "#333"
 				}}
 			>
-				Example 4: Using the Spring Events
+				Example 3: Using the Spring Events
 			</p>
 
 			<animated.div

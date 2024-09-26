@@ -1,13 +1,13 @@
 import { htmlDefault, bodyDefault, mainDefault } from "../styles/pageDefaults";
 import { styleReset } from "../styles/styleReset";
-import { IntroArticle } from "../components/articles/IntroArticle";
 import { Intro } from "../components/content/Intro";
-import { ConfigObjectArticle } from "../components/articles/ConfigObjectArticle";
 import { Header } from "../components/utils/Header";
 import { TableOfContents } from "../components/utils/TableOfContents";
-import { EventsArticle } from "../components/articles/EventsArticle";
 import { ScrollTopButton } from "../components/utils/ScrollTopButton";
 import { NavigationButton } from "../components/utils/NavigationButton";
+import { IntroSection } from "../components/sections/IntroSection";
+import { EventsSection } from "../components/sections/EventsSection";
+import { ConfigSection } from "../components/sections/ConfigSection";
 
 export const Home = () => {
 	return (
@@ -28,9 +28,9 @@ export const Home = () => {
 					<Header />
 					<Intro />
 					<TableOfContents />
-					<IntroArticle />
-					<ConfigObjectArticle />
-					<EventsArticle />
+					<IntroSection />
+					<ConfigSection />
+					<EventsSection />
 					<ScrollTopButton />
 					<NavigationButton />
 				</main>

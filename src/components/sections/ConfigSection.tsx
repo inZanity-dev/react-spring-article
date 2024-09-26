@@ -11,8 +11,9 @@ import { Example1 } from "../examples/Example1";
 import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { configAPICode, durationCode } from "../../utils/codeStrings";
 import { Example2 } from "../examples/Example2";
+import { PrismWCopy } from "../utils/PrismWCopy";
 
-export const ConfigObjectArticle = () => {
+export const ConfigSection = () => {
 	return (
 		<article id="config-object" style={articleStyle}>
 			<h3
@@ -39,14 +40,12 @@ export const ConfigObjectArticle = () => {
 				changes.
 			</p>
 			<Example1 />
-			<Prism
+			<PrismWCopy
+				codeString={durationCode}
 				language="tsx"
-				style={nightOwl}
 				showLineNumbers
-				customStyle={highlighterStyle(true)}
-			>
-				{durationCode}
-			</Prism>
+				customStyle={highlighterStyle}
+			/>
 			<section
 				style={explanationStyle(
 					"linear-gradient(135deg, oklch(95% 0.08 250), oklch(75% 0.1 230))"
@@ -123,14 +122,12 @@ export const ConfigObjectArticle = () => {
 				</p>
 			</section>
 			<Example2 />
-			<Prism
+			<PrismWCopy
+				codeString={configAPICode}
 				language="tsx"
-				style={nightOwl}
 				showLineNumbers
-				customStyle={highlighterStyle(true)}
-			>
-				{configAPICode}
-			</Prism>
+				customStyle={highlighterStyle}
+			/>
 			<p
 				style={explanationStyle(
 					"linear-gradient(135deg, oklch(95% 0.08 250), oklch(75% 0.1 230))"

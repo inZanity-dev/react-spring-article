@@ -9,7 +9,6 @@ export const ScrollTopButton = () => {
 			top: 0,
 			behavior: "smooth"
 		});
-		document.body.style.cursor = "default";
 	};
 
 	const handleHover = () => {

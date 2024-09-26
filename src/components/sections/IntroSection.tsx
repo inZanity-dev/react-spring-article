@@ -14,8 +14,9 @@ import {
 	useSpringCode
 } from "../../utils/codeStrings";
 import { Prism } from "react-syntax-highlighter";
+import { PrismWCopy } from "../utils/PrismWCopy";
 
-export const IntroArticle = () => {
+export const IntroSection = () => {
 	return (
 		<article id="getting-started" style={articleStyle}>
 			<h3
@@ -43,14 +44,12 @@ export const IntroArticle = () => {
 				changes trigger a re-render.
 			</p>
 			<Example0 />
-			<Prism
+			<PrismWCopy
+				codeString={useSpringCode}
 				language="tsx"
-				style={nightOwl}
 				showLineNumbers
-				customStyle={highlighterStyle(true)}
-			>
-				{useSpringCode}
-			</Prism>
+				customStyle={highlighterStyle}
+			/>
 			<section
 				style={explanationStyle(
 					"linear-gradient(135deg, oklch(95% 0.08 250), oklch(75% 0.1 230))"
@@ -93,15 +92,12 @@ export const IntroArticle = () => {
 					the methods.
 				</aside>
 			</section>
-
-			<Prism
+			<PrismWCopy
+				codeString={apiStartCode}
 				language="tsx"
-				style={nightOwl}
 				showLineNumbers
-				customStyle={highlighterStyle()}
-			>
-				{apiStartCode}
-			</Prism>
+				customStyle={highlighterStyle}
+			/>
 			<p
 				style={explanationStyle(
 					"linear-gradient(135deg, oklch(95% 0.08 250), oklch(75% 0.1 230))"
@@ -112,14 +108,12 @@ export const IntroArticle = () => {
 				the properties we want to animate. In this case, we are changing
 				the background color of the box to a random color.
 			</p>
-			<Prism
+			<PrismWCopy
+				codeString={animatedCode}
 				language="tsx"
-				style={nightOwl}
 				showLineNumbers
-				customStyle={highlighterStyle()}
-			>
-				{animatedCode}
-			</Prism>
+				customStyle={highlighterStyle}
+			/>
 			<p
 				style={explanationStyle(
 					"linear-gradient(135deg, oklch(95% 0.08 250), oklch(75% 0.1 230))"
