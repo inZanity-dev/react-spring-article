@@ -1,4 +1,4 @@
-import { explanationStyle } from "../styles/blogStyles";
+import { explanationStyle } from "../../styles/blogStyles";
 
 export const Intro = () => {
 	return (

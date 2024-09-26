@@ -1,8 +1,10 @@
 import { htmlDefault, bodyDefault, mainDefault } from "../styles/pageDefaults";
 import { styleReset } from "../styles/styleReset";
-import { IntroArticle } from "../components/IntroArticle";
-import { Header } from "../components/Header";
-import { Intro } from "../components/Intro";
+import { IntroArticle } from "../components/articles/IntroArticle";
+import { Intro } from "../components/content/Intro";
+import { ConfigObjectArticle } from "../components/articles/ConfigObjectArticle";
+import { Header } from "../components/utils/Header";
+import { TableOfContents } from "../components/utils/TableOfContents";
 
 export const Home = () => {
 	return (
@@ -22,7 +24,9 @@ export const Home = () => {
 				<main style={mainDefault}>
 					<Header />
 					<Intro />
+					<TableOfContents />
 					<IntroArticle />
+					<ConfigObjectArticle />
 				</main>
 			</body>
 		</html>

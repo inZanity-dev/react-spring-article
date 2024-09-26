@@ -3,13 +3,17 @@ import { exampleBoxStyle, outputStyle } from "../../styles/blogStyles";
 import { getRandomRGBAColor } from "../../utils/colors";
 import { useRef, useState } from "react";
 
-export const Example0 = () => {
-	const [boxSpring, boxApi] = useSpring(() => ({
-		backgroundColor: "blue"
-	}));
-
-	const [buttonState, setButtonState] = useState(false);
-
+export const Example1 = () => {
+	const [durationState, setDurationState] = useState(1000);
+	const [boxSpring, boxApi] = useSpring(
+		() => ({
+			backgroundColor: "rgba(0,0,255,1)",
+			config: {
+				duration: durationState
+			}
+		}),
+		[durationState]
+	);
 	const renderCountRef = useRef(0);
 	renderCountRef.current += 1;
 
@@ -29,7 +33,7 @@ export const Example0 = () => {
 					color: "#333"
 				}}
 			>
-				Example 0: Try Me Out!
+				Example 1: Testing Durations
 			</p>
 
 			<animated.div
@@ -56,21 +60,17 @@ export const Example0 = () => {
 			<span style={outputStyle}>
 				Render Count : {renderCountRef.current}
 			</span>
-			<button
-				onClick={() => setButtonState((prev) => !prev)}
+			<input
+				type="number"
+				value={durationState}
+				onChange={(e) => setDurationState(Number(e.target.value))}
 				style={{
 					padding: "0.5rem 1rem",
-					backgroundColor: "#333",
-					color: "#fff",
-					borderRadius: "6px",
-					border: "none",
-					cursor: "pointer",
-					marginTop: "1rem",
-					width: "25%"
+					margin: "1rem 0",
+					fontSize: "1rem",
+					textAlign: "center"
 				}}
-			>
-				React State - {buttonState ? "True" : "False"}
-			</button>
+			/>
 		</section>
 	);
 };

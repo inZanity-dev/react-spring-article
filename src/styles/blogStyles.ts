@@ -27,13 +27,13 @@ export const exampleBoxStyle: CSSProperties = {
 };
 
 export const explanationStyle = (
-	backgroundColor = "transparent"
+	background = "transparent"
 ): CSSProperties => ({
 	fontSize: "1.1rem",
 	lineHeight: "1.6",
 	color: "#333",
 	textAlign: "justify",
-	backgroundColor,
+	background,
 	padding: "1rem",
 	borderRadius: "8px",
 	margin: "2rem 0"
@@ -54,4 +54,12 @@ export const ulStyle: CSSProperties = {
 
 export const liStyle: CSSProperties = {
 	marginBottom: "0.5rem"
+};
+
+export const codeTagStyle = {
+	fontFamily: "monospace",
+	marginBottom: "1rem",
+	color: "#333",
+	backgroundColor: "lightgray",
+	padding: "0.2rem"
 };

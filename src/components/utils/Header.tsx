@@ -3,7 +3,7 @@ import {
 	titleStyle,
 	subtitleStyle,
 	authorStyle
-} from "../styles/headerStyles";
+} from "../../styles/headerStyles";
 
 export const Header = () => {
 	return (

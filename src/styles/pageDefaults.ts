@@ -17,5 +17,6 @@ export const mainDefault: CSSProperties = {
 };
 
 export const htmlDefault: CSSProperties = {
-	height: "100%"
+	height: "100%",
+	scrollBehavior: "smooth"
 };
