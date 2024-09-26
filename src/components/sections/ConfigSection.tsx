@@ -1,4 +1,3 @@
-import { Prism } from "react-syntax-highlighter";
 import {
 	articleStyle,
 	codeTagStyle,
@@ -8,7 +7,6 @@ import {
 	ulStyle
 } from "../../styles/blogStyles";
 import { Example1 } from "../examples/Example1";
-import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { configAPICode, durationCode } from "../../utils/codeStrings";
 import { Example2 } from "../examples/Example2";
 import { PrismWCopy } from "../utils/PrismWCopy";
@@ -136,10 +134,12 @@ export const ConfigSection = () => {
 				We can update the config when we call the API's{" "}
 				<code style={codeTagStyle}>start()</code> method. This can be
 				useful when we want to change the spring's behavior dynamically,
-				without reseting the spring. In this example, we change the
-				spring's duration based on the input value when the user clicks
-				the box. Since we are not using a state variable we remove the
-				need to re-render when we change the duration.
+				without reseting the spring. In the last example when we changed
+				the duration the spring was reset to its initial state. In this
+				example, we change the spring's duration based on the input
+				value when the user clicks the box. Since we are not using a
+				state variable we remove the need to re-render when we change
+				the duration.
 			</p>
 		</article>
 	);

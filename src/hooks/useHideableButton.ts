@@ -2,7 +2,7 @@ import { useSpring, AnimatedProps } from "@react-spring/web";
 import { CSSProperties, useEffect } from "react";
 
 export const useHideableButton = ({
-	bottom = "2rem",
+	bottom = "0rem",
 	background = "#0366d6"
 }) => {
 	const [buttonSprings, buttonApi] = useSpring(() => ({
@@ -13,7 +13,7 @@ export const useHideableButton = ({
 	const buttonStyle: AnimatedProps<CSSProperties> = {
 		position: "fixed",
 		bottom,
-		right: "2rem",
+		right: "1rem",
 		width: "3rem",
 		height: "3rem",
 		padding: "1rem",
@@ -49,5 +49,23 @@ export const useHideableButton = ({
 		};
 	}, [buttonApi]);
 
-	return { buttonStyle, buttonSprings, buttonApi };
+	const handleButtonHover = () => {
+		buttonApi.start({ opacity: 1 });
+	};
+
+	const handleButtonUnhover = () => {
+		if (window.scrollY > 300) {
+			buttonApi.start({ opacity: 0.3 });
+		} else {
+			buttonApi.start({ opacity: 0 });
+		}
+	};
+
+	return {
+		buttonStyle,
+		buttonSprings,
+		buttonApi,
+		handleButtonHover,
+		handleButtonUnhover
+	};
 };

@@ -2,7 +2,8 @@ import { animated } from "@react-spring/web";
 import { useHideableButton } from "../../hooks/useHideableButton";
 
 export const ScrollTopButton = () => {
-	const { buttonStyle, buttonApi } = useHideableButton({});
+	const { buttonStyle, handleButtonHover, handleButtonUnhover } =
+		useHideableButton({ bottom: "1rem" });
 
 	const scrollToTop = () => {
 		window.scrollTo({
@@ -11,23 +12,11 @@ export const ScrollTopButton = () => {
 		});
 	};
 
-	const handleHover = () => {
-		buttonApi.start({ opacity: 1 });
-	};
-
-	const handleUnhover = () => {
-		if (window.scrollY > 300) {
-			buttonApi.start({ opacity: 0.3 });
-		} else {
-			buttonApi.start({ opacity: 0 });
-		}
-	};
-
 	return (
 		<animated.button
 			onClick={scrollToTop}
-			onMouseEnter={handleHover}
-			onMouseLeave={handleUnhover}
+			onMouseEnter={handleButtonHover}
+			onMouseLeave={handleButtonUnhover}
 			style={buttonStyle}
 		>
 			<svg

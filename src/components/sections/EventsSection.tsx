@@ -82,8 +82,8 @@ export const EventsSection = () => {
 						paddingBottom: "0.75rem"
 					}}
 				>
-					These event listeners all have access to the following
-					arguments:
+					These three event listeners all have access to the following
+					optional arguments:
 				</p>
 				<ul style={ulStyle}>
 					<li style={liStyle}>

@@ -40,7 +40,10 @@ export const Example3 = () => {
 	renderCountRef.current += 1;
 
 	return (
-		<section style={exampleBoxStyle()}>
+		<section 
+		style={exampleBoxStyle()}
+		id="example-3"
+		>
 			<p
 				style={{
 					fontSize: "1.4rem",

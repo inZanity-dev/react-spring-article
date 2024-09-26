@@ -24,7 +24,7 @@ export const Example1 = () => {
 	};
 
 	return (
-		<section style={exampleBoxStyle(true)}>
+		<section style={exampleBoxStyle(true)} id="example-1">
 			<p
 				style={{
 					fontSize: "1.4rem",

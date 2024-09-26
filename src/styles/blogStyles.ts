@@ -15,7 +15,7 @@ export const articleStyle: CSSProperties = {
 	flexDirection: "column"
 };
 
-export const exampleBoxStyle = (needsBottomMargin = false):CSSProperties => ({
+export const exampleBoxStyle = (needsBottomMargin = false): CSSProperties => ({
 	backgroundColor: "#f0f0f0",
 	padding: "2rem",
 	borderLeft: "16px solid #333",
@@ -66,7 +66,7 @@ export const codeTagStyle = {
 	padding: "0.2rem"
 };
 
-export const highlighterStyle : CSSProperties ={
+export const highlighterStyle: CSSProperties = {
 	borderBottomRightRadius: "8px",
 	borderBottomLeftRadius: "8px",
 	padding: "1rem",
