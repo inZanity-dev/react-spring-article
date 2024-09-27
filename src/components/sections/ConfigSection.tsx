@@ -35,7 +35,8 @@ export const ConfigSection = () => {
 				the animation in milliseconds. Enter different values for the
 				duration property to see how the animation changes. Notice again
 				the component only re-renders when the duration state value
-				changes.
+				changes. Also notice how the spring resets to its initial state
+				when the duration changes causing it to go back to blue.
 			</p>
 			<Example1 />
 			<PrismWCopy

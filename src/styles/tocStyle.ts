@@ -1,3 +1,4 @@
+import { AnimatedProps, SpringValue } from "@react-spring/web";
 import { CSSProperties } from "react";
 
 export const tocHeadingStyle: CSSProperties = {
@@ -34,10 +35,33 @@ export const tocSubListStyle: CSSProperties = {
 	marginTop: "0.5rem"
 };
 
-
-
 export const tocSubLinkStyle: CSSProperties = {
 	textDecoration: "none",
 	color: "#005999",
 	fontSize: "1rem"
+};
+
+export const menuContainerStyle = (containerSprings: {
+	opacity: SpringValue<number>;
+}): AnimatedProps<CSSProperties> => ({
+	position: "fixed",
+	bottom: "8rem",
+	right: "1rem",
+	backgroundColor: "#f7f7f7",
+	borderRadius: "8px",
+	boxShadow: "0 2px 5px rgba(0,0,0,0.3)",
+	padding: "1rem",
+	maxHeight: "50vh",
+	overflowY: "auto",
+	width: "300px",
+	opacity: containerSprings.opacity
+});
+
+export const tocContainerStyle = {
+	padding: "2rem",
+	maxWidth: "800px",
+	margin: "2rem auto",
+	backgroundColor: "#f7f7f7",
+	borderRadius: "8px",
+	boxShadow: "0 2px 5px rgba(0,0,0,0.1)"
 };

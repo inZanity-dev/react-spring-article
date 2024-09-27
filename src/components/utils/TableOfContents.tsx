@@ -1,15 +1,14 @@
-import { CSSProperties } from "react";
 import { tocData } from "../../data/tocData";
-import { tocHeadingStyle, tocLinkStyle, tocListItemStyle, tocListStyle, tocSubLinkStyle, tocSubListItemStyle, tocSubListStyle } from "../../styles/tocStyle";
-
-const tocContainerStyle: CSSProperties = {
-	padding: "2rem",
-	maxWidth: "800px",
-	margin: "2rem auto",
-	backgroundColor: "#f7f7f7",
-	borderRadius: "8px",
-	boxShadow: "0 2px 5px rgba(0,0,0,0.1)"
-};
+import {
+	tocContainerStyle,
+	tocHeadingStyle,
+	tocLinkStyle,
+	tocListItemStyle,
+	tocListStyle,
+	tocSubLinkStyle,
+	tocSubListItemStyle,
+	tocSubListStyle
+} from "../../styles/tocStyle";
 
 export const TableOfContents = () => {
 	return (
