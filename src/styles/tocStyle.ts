@@ -54,7 +54,10 @@ export const menuContainerStyle = (containerSprings: {
 	maxHeight: "50vh",
 	overflowY: "auto",
 	width: "300px",
-	opacity: containerSprings.opacity
+	opacity: containerSprings.opacity,
+	pointerEvents: containerSprings.opacity.to((o) =>
+		o === 0 ? "none" : "auto"
+	)
 });
 
 export const tocContainerStyle = {

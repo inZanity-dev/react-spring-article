@@ -80,3 +80,37 @@ export const eventsCode = `const [boxSpring, boxApi] = useSpring(() => ({
         }
     }
 }));`;
+
+export const complexAnimationCode = `const onStartInfoRef = useRef<HTMLParagraphElement>(null);
+const onRestInfoRef = useRef<HTMLParagraphElement>(null);
+const animationStartedRef = useRef(false);
+
+const [boxSpring, boxApi] = useSpring(() => ({
+    backgroundColor: "rgba(0,0,255,1)",
+    config: { duration: 2000 },
+    onStart(result) {
+        const logMessage = \`Animation started with value : \${result.value.backgroundColor}\`;
+        if (onStartInfoRef.current) {
+            onStartInfoRef.current.innerText = logMessage;
+        }
+    },
+    onRest(result, ctrl) {
+        const logMessage = \`Animation finished at value : \${result.value.backgroundColor}\`;
+        if (onRestInfoRef.current) {
+            onRestInfoRef.current.innerText = logMessage;
+        }
+        if (animationStartedRef.current) {
+            ctrl.start({ backgroundColor: getRandomRGBAColor(true) });
+        }
+    }
+}));
+
+const handleClick = () => {
+    if (animationStartedRef.current) {
+        animationStartedRef.current = false;
+        boxApi.stop();
+    } else {
+        animationStartedRef.current = true;
+        boxApi.start({ backgroundColor: getRandomRGBAColor(true) });
+    }
+};`

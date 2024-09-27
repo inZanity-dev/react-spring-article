@@ -7,8 +7,9 @@ import {
 	ulStyle
 } from "../../styles/blogStyles";
 import { Example3 } from "../examples/Example3";
-import { eventsCode } from "../../utils/codeStrings";
+import { complexAnimationCode, eventsCode } from "../../utils/codeStrings";
 import { PrismWCopy } from "../utils/PrismWCopy";
+import { Example4 } from "../examples/Example4";
 
 export const EventsSection = () => {
 	return (
@@ -134,6 +135,24 @@ export const EventsSection = () => {
 					</a>
 				</p>
 			</section>
+			<Example4 />
+			<PrismWCopy
+				codeString={complexAnimationCode}
+				language="tsx"
+				showLineNumbers
+				customStyle={highlighterStyle}
+			/>
+			<p
+				style={explanationStyle(
+					"linear-gradient(135deg, oklch(95% 0.08 250), oklch(75% 0.1 230))"
+				)}
+			>
+				Whenever the <code style={codeTagStyle}>onRest</code> event is
+				triggered, we use the <code style={codeTagStyle}>ctrl</code>{" "}
+				object to start a new animation with a random color to create a loop. This example 
+				uses <code style={codeTagStyle}>useRef</code> to keep track of the animation state.
+				In the next section I will show you how to use the spring itself as state.
+			</p>
 		</article>
 	);
 };
