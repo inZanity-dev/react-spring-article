@@ -13,7 +13,7 @@ export const Example2 = () => {
 			? parseInt(inputRef.current.value, 10)
 			: 1000;
 		boxApi.start({
-			backgroundColor: getRandomRGBAColor(true),
+			backgroundColor: getRandomRGBAColor(1),
 			config: { duration: newDuration }
 		});
 	};

@@ -149,9 +149,12 @@ export const EventsSection = () => {
 			>
 				Whenever the <code style={codeTagStyle}>onRest</code> event is
 				triggered, we use the <code style={codeTagStyle}>ctrl</code>{" "}
-				object to start a new animation with a random color to create a loop. This example 
-				uses <code style={codeTagStyle}>useRef</code> to keep track of the animation state.
-				In the next section I will show you how to use the spring itself as state.
+				object to start a new animation with a random color to create a
+				loop. You will notice the use of{" "}
+				<code style={codeTagStyle}>set()</code> to control a boolean
+				value that determines whether the animation is running or not.
+				In the next section you will see further how to use the spring
+				as state.
 			</p>
 		</article>
 	);

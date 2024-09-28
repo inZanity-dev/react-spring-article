@@ -8,6 +8,8 @@ import { NavigationButton } from "../components/utils/NavigationButton";
 import { IntroSection } from "../components/sections/IntroSection";
 import { EventsSection } from "../components/sections/EventsSection";
 import { ConfigSection } from "../components/sections/ConfigSection";
+import { StateSection } from "../components/sections/StateSection";
+import { SpringsSection } from "../components/sections/SpringsSection";
 
 export const Home = () => {
 	return (
@@ -31,8 +33,12 @@ export const Home = () => {
 					<IntroSection />
 					<ConfigSection />
 					<EventsSection />
-					<ScrollTopButton />
-					<NavigationButton />
+					<StateSection />
+					<SpringsSection />
+					<nav>
+						<ScrollTopButton />
+						<NavigationButton />
+					</nav>
 				</main>
 			</body>
 		</html>

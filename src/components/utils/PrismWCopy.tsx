@@ -8,6 +8,7 @@ type PrismWCopyProps = {
 	showLineNumbers?: boolean;
 	customStyle?: object;
 	codeStyle?: SyntaxHighlighterProps["style"];
+	needsBottomMargin?: boolean;
 };
 
 export const PrismWCopy = ({
@@ -15,7 +16,8 @@ export const PrismWCopy = ({
 	language = "tsx",
 	showLineNumbers = true,
 	customStyle = { margin: 0, padding: "1em" },
-	codeStyle = nightOwl
+	codeStyle = nightOwl,
+	needsBottomMargin = false
 }: PrismWCopyProps) => {
 	const [copied, setCopied] = useState(false);
 
@@ -26,13 +28,24 @@ export const PrismWCopy = ({
 		});
 	};
 
+	// Function to get the display name of the language
+	const getDisplayLanguage = (lang: string) => {
+		const langMap: { [key: string]: string } = {
+			typescript: "TS",
+			javascript: "JS"
+			// Add more mappings if needed
+		};
+		return langMap[lang.toLowerCase()] || lang.toUpperCase();
+	};
+
 	return (
 		<div
 			style={{
 				position: "relative",
 				borderRadius: "5px",
 				overflow: "hidden",
-				border: "1px solid #e1e1e8"
+				border: "1px solid #e1e1e8",
+				marginBottom: needsBottomMargin ? "2rem" : "0"
 			}}
 		>
 			<div
@@ -46,7 +59,7 @@ export const PrismWCopy = ({
 				}}
 			>
 				<span style={{ fontSize: "0.9em", color: "#333" }}>
-					{language.toUpperCase()}
+					{getDisplayLanguage(language)}
 				</span>
 				<button
 					onClick={handleCopy}

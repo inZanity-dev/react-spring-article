@@ -6,10 +6,10 @@ import { useRef } from "react";
 export const Example4 = () => {
 	const onStartInfoRef = useRef<HTMLParagraphElement>(null);
 	const onRestInfoRef = useRef<HTMLParagraphElement>(null);
-	const animationStartedRef = useRef(false);
 
 	const [boxSpring, boxApi] = useSpring(() => ({
 		backgroundColor: "rgba(0,0,255,1)",
+		animationStarted: false,
 		config: { duration: 2000 },
 		onStart(result) {
 			const logMessage = `Animation started with value : ${result.value.backgroundColor}`;
@@ -22,19 +22,19 @@ export const Example4 = () => {
 			if (onRestInfoRef.current) {
 				onRestInfoRef.current.innerText = logMessage;
 			}
-			if (animationStartedRef.current) {
-				ctrl.start({ backgroundColor: getRandomRGBAColor(true) });
+			if (result.value.animationStarted) {
+				ctrl.start({ backgroundColor: getRandomRGBAColor(1) });
 			}
 		}
 	}));
 
 	const handleClick = () => {
-		if (animationStartedRef.current) {
-			animationStartedRef.current = false;
+		if (boxSpring.animationStarted.get()) {
+			boxApi.set({ animationStarted: false });
 			boxApi.stop();
 		} else {
-			animationStartedRef.current = true;
-			boxApi.start({ backgroundColor: getRandomRGBAColor(true) });
+			boxApi.set({ animationStarted: true });
+			boxApi.start({ backgroundColor: getRandomRGBAColor(1) });
 		}
 	};
 
@@ -42,7 +42,7 @@ export const Example4 = () => {
 	renderCountRef.current += 1;
 
 	return (
-		<section style={exampleBoxStyle(true)} id="example-3">
+		<section style={exampleBoxStyle(true)} id="example-4">
 			<p
 				style={{
 					fontSize: "1.4rem",

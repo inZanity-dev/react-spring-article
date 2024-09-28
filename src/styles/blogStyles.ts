@@ -73,3 +73,14 @@ export const highlighterStyle: CSSProperties = {
 	boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
 	margin: "0"
 };
+
+export const exampleButtonStyle: CSSProperties = {
+	padding: "0.5rem 1rem",
+	backgroundColor: "#333",
+	color: "#fff",
+	borderRadius: "6px",
+	border: "none",
+	cursor: "pointer",
+	marginTop: "1rem",
+	width: "25%"
+};

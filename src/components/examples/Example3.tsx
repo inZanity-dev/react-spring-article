@@ -32,7 +32,7 @@ export const Example3 = () => {
 
 	const handleClick = () => {
 		boxApi.start({
-			backgroundColor: getRandomRGBAColor(true)
+			backgroundColor: getRandomRGBAColor(1)
 		});
 	};
 

@@ -4,27 +4,34 @@ import {
 	exampleButtonStyle,
 	outputStyle
 } from "../../styles/blogStyles";
-import { getRandomRGBAColor } from "../../utils/colors";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 
-export const Example0 = () => {
+export const Example5 = () => {
+	const unClickedColor = "rgba(255,0,0,1)";
+	const clickedColor = "rgba(0,255,0,1)";
+
 	const [boxSpring, boxApi] = useSpring(() => ({
-		backgroundColor: "rgba(0,0,255,1)"
+		backgroundColor: unClickedColor,
+		config: { duration: 0 }
 	}));
 
-	const [buttonState, setButtonState] = useState(false);
+	const handleClick = () => {
+		const currentColor = boxSpring.backgroundColor.get();
+		const isClicked = currentColor === clickedColor;
+		boxApi.start({
+			backgroundColor: isClicked ? unClickedColor : clickedColor
+		});
+	};
 
 	const renderCountRef = useRef(0);
 	renderCountRef.current += 1;
 
-	const handleClick = () => {
-		boxApi.start({
-			backgroundColor: getRandomRGBAColor(1)
-		});
-	};
+	const currentState = boxSpring.backgroundColor.to((color) =>
+		color === clickedColor ? "True" : "False"
+	);
 
 	return (
-		<section style={exampleBoxStyle(true)} id="example-0">
+		<section style={exampleBoxStyle(true)} id="example-5">
 			<p
 				style={{
 					fontSize: "1.4rem",
@@ -33,7 +40,7 @@ export const Example0 = () => {
 					color: "#333"
 				}}
 			>
-				Example 0: Try Me Out!
+				Example 5: Toggling State with React Spring
 			</p>
 
 			<animated.div
@@ -53,6 +60,11 @@ export const Example0 = () => {
 				<p style={{ color: "#fff", fontWeight: "bold" }}>Click me</p>
 			</animated.div>
 
+			<button style={exampleButtonStyle} onClick={handleClick}>
+				React Spring State -{" "}
+				<animated.span>{currentState}</animated.span>
+			</button>
+
 			<animated.p style={outputStyle}>
 				{boxSpring.backgroundColor.to((color) => color)}
 			</animated.p>
@@ -60,12 +72,6 @@ export const Example0 = () => {
 			<span style={outputStyle}>
 				Render Count : {renderCountRef.current}
 			</span>
-			<button
-				onClick={() => setButtonState((prev) => !prev)}
-				style={exampleButtonStyle}
-			>
-				React State - {buttonState ? "True" : "False"}
-			</button>
 		</section>
 	);
 };
