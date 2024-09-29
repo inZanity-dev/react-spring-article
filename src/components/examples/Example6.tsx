@@ -50,9 +50,7 @@ export const Example6 = () => {
 		});
 	};
 
-	const handleClick = (
-		index: number,
-	) => {
+	const handleClick = (index: number) => {
 		boxApi.start((i) => {
 			if (i !== index) return;
 
@@ -95,34 +93,33 @@ export const Example6 = () => {
 							alignItems: "center"
 						}}
 					>
+						<animated.div
+							key={index}
+							style={{
+								width: "120px",
+								height: "120px",
+								backgroundColor: boxSpring.backgroundColor,
+								opacity: boxSpring.opacity,
+								scale: boxSpring.scale,
+								display: "flex",
+								justifyContent: "center",
+								alignItems: "center",
+								cursor: "pointer",
+								borderRadius: "10px",
+								marginBottom: "1rem"
+							}}
+							onClick={() => handleClick(index)}
+							onMouseEnter={() => handleHover(index)}
+							onMouseLeave={() => handleUnhover(index)}
+						>
+							<p style={{ color: "#fff", fontWeight: "bold" }}>
+								Click me
+							</p>
+						</animated.div>
 
-					<animated.div
-						key={index}
-						style={{
-							width: "120px",
-							height: "120px",
-							backgroundColor: boxSpring.backgroundColor,
-							opacity: boxSpring.opacity,
-							scale: boxSpring.scale,
-							display: "flex",
-							justifyContent: "center",
-							alignItems: "center",
-							cursor: "pointer",
-							borderRadius: "10px",
-							marginBottom: "1rem"
-						}}
-						onClick={() => handleClick(index)}
-						onMouseEnter={() => handleHover(index)}
-						onMouseLeave={() => handleUnhover(index)}
-					>
-						<p style={{ color: "#fff", fontWeight: "bold" }}>
-							Click me
-						</p>
-					</animated.div>
-					
-					<animated.p style={outputStyle}>
-				{boxSpring.backgroundColor.to((color) => color)}
-			</animated.p>
+						<animated.p style={outputStyle}>
+							{boxSpring.backgroundColor.to((color) => color)}
+						</animated.p>
 					</div>
 				))}
 			</div>

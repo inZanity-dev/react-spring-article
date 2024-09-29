@@ -34,6 +34,28 @@ export const IntroSection = () => {
 					"linear-gradient(135deg, oklch(95% 0.08 250), oklch(75% 0.1 230))"
 				)}
 			>
+				To get started with React Spring, you need to install the
+				library for your use case (web, native, or three.js). For this
+				article, we will be using the web version. You can install it
+				with your package manager of choice by running:
+			</p>
+			<PrismWCopy
+				codeString={[
+					"bun install @react-spring/web",
+					"npm install @react-spring/web",
+					"yarn add @react-spring/web",
+					"pnpm add @react-spring/web"
+				]}
+				options={["Bun", "NPM", "Yarn", "PNPM"]}
+				language="bash"
+				showLineNumbers
+				customStyle={highlighterStyle}
+			/>
+			<p
+				style={explanationStyle(
+					"linear-gradient(135deg, oklch(95% 0.08 250), oklch(75% 0.1 230))"
+				)}
+			>
 				<code style={codeTagStyle}>useSpring()</code> is the main hook
 				for animations within the library. It takes a function where you
 				can define the initial state of the animation. You can

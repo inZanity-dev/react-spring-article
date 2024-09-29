@@ -1,12 +1,8 @@
 import { animated, useSpring, useSprings } from "@react-spring/web";
-import {
-	exampleBoxStyle,
-	outputStyle
-} from "../../styles/blogStyles";
+import { exampleBoxStyle, outputStyle } from "../../styles/blogStyles";
 import { useRef } from "react";
 
 export const Example7 = () => {
-	
 	const renderCountRef = useRef(0);
 	renderCountRef.current += 1;
 
@@ -23,7 +19,7 @@ export const Example7 = () => {
 				Example 7: Your Animation
 			</p>
 
-            {/* Your code here */}
+			{/* Your code here */}
 
 			<span style={outputStyle}>
 				Render Count : {renderCountRef.current}

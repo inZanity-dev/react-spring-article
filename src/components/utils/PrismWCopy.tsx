@@ -1,14 +1,22 @@
-import { useState } from "react";
+import { CSSProperties, useState } from "react";
 import { Prism, SyntaxHighlighterProps } from "react-syntax-highlighter";
 import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { CheckmarkIcon } from "../icons/CheckmarkIcon";
+import { CopyIcon } from "../icons/CopyIcon";
+import {
+	highlighterContainerStyle,
+	highlighterCopyButtonStyle,
+	highlighterHeaderStyle
+} from "../../styles/syntaxHighlighterStyles";
 
 type PrismWCopyProps = {
-	codeString: string;
+	codeString: string | string[];
 	language?: string;
 	showLineNumbers?: boolean;
 	customStyle?: object;
 	codeStyle?: SyntaxHighlighterProps["style"];
 	needsBottomMargin?: boolean;
+	options?: string[];
 };
 
 export const PrismWCopy = ({
@@ -17,90 +25,111 @@ export const PrismWCopy = ({
 	showLineNumbers = true,
 	customStyle = { margin: 0, padding: "1em" },
 	codeStyle = nightOwl,
-	needsBottomMargin = false
+	needsBottomMargin = false,
+	options
 }: PrismWCopyProps) => {
 	const [copied, setCopied] = useState(false);
+	const [selectedOptionIndex, setSelectedOptionIndex] = useState(0);
+
+	const codeStringsArray = Array.isArray(codeString)
+		? codeString
+		: [codeString];
+	const optionsArray = options || [];
+
+	const displayedCodeString =
+		codeStringsArray[selectedOptionIndex] || codeStringsArray[0];
 
 	const handleCopy = () => {
-		navigator.clipboard.writeText(codeString).then(() => {
+		navigator.clipboard.writeText(displayedCodeString).then(() => {
 			setCopied(true);
 			setTimeout(() => setCopied(false), 2500);
 		});
 	};
 
-	// Function to get the display name of the language
+	const handleOptionChange = (
+		event: React.ChangeEvent<HTMLSelectElement>
+	) => {
+		setSelectedOptionIndex(Number(event.target.value));
+	};
+
 	const getDisplayLanguage = (lang: string) => {
 		const langMap: { [key: string]: string } = {
 			typescript: "TS",
 			javascript: "JS"
-			// Add more mappings if needed
 		};
 		return langMap[lang.toLowerCase()] || lang.toUpperCase();
 	};
 
+	const highlighterSelectContainerStyle: CSSProperties = {
+		position: "relative",
+		display: "inline-block",
+		marginLeft: "10px"
+	};
+
+	const highlighterSelectStyle: CSSProperties = {
+		fontSize: "0.9em",
+		background: "transparent",
+		border: "none",
+		color: "#333",
+		appearance: "none",
+		WebkitAppearance: "none",
+		MozAppearance: "none",
+		paddingRight: "20px",
+		paddingLeft: "0",
+		outline: "none",
+		cursor: "pointer"
+	};
+
+	const selectArrowStyle: CSSProperties = {
+		position: "absolute",
+		top: "50%",
+		right: "5px",
+		pointerEvents: "none",
+		transform: "translateY(-50%)"
+	};
+
 	return (
-		<div
-			style={{
-				position: "relative",
-				borderRadius: "5px",
-				overflow: "hidden",
-				border: "1px solid #e1e1e8",
-				marginBottom: needsBottomMargin ? "2rem" : "0"
-			}}
-		>
-			<div
-				style={{
-					display: "flex",
-					justifyContent: "space-between",
-					alignItems: "center",
-					backgroundColor: "#f5f5f5",
-					padding: "5px 10px",
-					borderBottom: "1px solid #e1e1e8"
-				}}
-			>
+		<div style={highlighterContainerStyle(needsBottomMargin)}>
+			<div style={highlighterHeaderStyle}>
 				<span style={{ fontSize: "0.9em", color: "#333" }}>
 					{getDisplayLanguage(language)}
 				</span>
-				<button
-					onClick={handleCopy}
-					style={{
-						display: "flex",
-						alignItems: "center",
-						backgroundColor: "transparent",
-						color: "#333",
-						border: "none",
-						cursor: "pointer",
-						fontSize: "0.9em"
-					}}
-				>
+				{options && options.length > 0 && (
+					<div style={highlighterSelectContainerStyle}>
+						<select
+							style={highlighterSelectStyle}
+							value={selectedOptionIndex}
+							onChange={handleOptionChange}
+						>
+							{optionsArray.map((option, index) => (
+								<option key={index} value={index}>
+									{option}
+								</option>
+							))}
+						</select>
+						<div style={selectArrowStyle}>
+							{/* Arrow SVG */}
+							<svg
+								width="10"
+								height="5"
+								viewBox="0 0 10 5"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<path d="M0 0L5 5L10 0H0Z" fill="#333" />
+							</svg>
+						</div>
+					</div>
+				)}
+				<button onClick={handleCopy} style={highlighterCopyButtonStyle}>
 					{copied ? (
 						<>
-							{/* Checkmark SVG */}
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								style={{ marginRight: "5px" }}
-								width="16"
-								height="16"
-								viewBox="0 0 24 24"
-								fill="currentColor"
-							>
-								<path d="M9 16.17l-3.88-3.88a1 1 0 10-1.42 1.42l4.59 4.59a1 1 0 001.42 0l10-10a1 1 0 10-1.42-1.42L9 16.17z" />
-							</svg>
+							<CheckmarkIcon />
 							Copied!
 						</>
 					) : (
 						<>
-							{/* Copy Icon SVG */}
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								style={{ marginRight: "5px" }}
-								width="16"
-								height="16"
-								viewBox="0 0 24 24"
-								fill="currentColor"
-							>
-								<path d="M16 1H4C2.897 1 2 1.897 2 3v14h2V3h12V1zM20 5H8C6.897 5 6 5.897 6 7v14c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2V7c0-1.103-.897-2-2-2zm0 16H8V7h12v14z" />
-							</svg>
+							<CopyIcon />
 							Copy Code
 						</>
 					)}
@@ -112,7 +141,7 @@ export const PrismWCopy = ({
 				showLineNumbers={showLineNumbers}
 				customStyle={customStyle}
 			>
-				{codeString}
+				{displayedCodeString}
 			</Prism>
 		</div>
 	);

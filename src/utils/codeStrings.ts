@@ -182,7 +182,7 @@ const handleUnhover = (index: number) => {
             scale: 1
         };
     });
-};`
+};`;
 
 export const yourTurnCode = `import { animated, useSpring, useSprings } from "@react-spring/web";
 import {
