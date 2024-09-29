@@ -10,6 +10,7 @@ import { EventsSection } from "../components/sections/EventsSection";
 import { ConfigSection } from "../components/sections/ConfigSection";
 import { StateSection } from "../components/sections/StateSection";
 import { SpringsSection } from "../components/sections/SpringsSection";
+import { PracticeSection } from "../components/sections/PracticeSection";
 
 export const Home = () => {
 	return (
@@ -35,6 +36,7 @@ export const Home = () => {
 					<EventsSection />
 					<StateSection />
 					<SpringsSection />
+					<PracticeSection />
 					<nav>
 						<ScrollTopButton />
 						<NavigationButton />

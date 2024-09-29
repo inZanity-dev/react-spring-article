@@ -29,5 +29,10 @@ export const tocData = [
 		id: "multiple-springs",
 		label: "Using Multiple Springs",
 		subsections: [{ id: "example-6", label: "Example 6" }]
+	},
+	{
+		id: "your-turn",
+		label: "Try It Out",
+		subsections: [{ id: "example-7", label: "Example 7" }]
 	}
 ];

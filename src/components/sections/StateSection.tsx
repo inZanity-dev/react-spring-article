@@ -35,7 +35,7 @@ export const StateSection = () => {
 			<Example5 />
 			<PrismWCopy
 				codeString={springStateCode}
-				language="typescript"
+				language="tsx"
 				showLineNumbers
 				customStyle={highlighterStyle}
 				needsBottomMargin

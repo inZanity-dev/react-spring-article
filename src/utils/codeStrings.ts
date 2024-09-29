@@ -7,7 +7,7 @@ export const useSpringCode = `const [boxSpring, boxApi] = useSpring(
 
 export const apiStartCode = `const handleClick = () => {
     boxApi.start({
-        backgroundColor: getRandomRGBAColor(true)
+        backgroundColor: getRandomRGBAColor(1)}
     });
 };`;
 
@@ -54,7 +54,7 @@ const handleClick = () => {
     ? parseInt(inputRef.current.value, 10)
     : 1000;
     boxApi.start({
-        backgroundColor: getRandomRGBAColor(true),
+        backgroundColor: getRandomRGBAColor(1)},
         config: { duration: newDuration }
     });
 };`;
@@ -97,7 +97,7 @@ export const complexAnimationCode = `const [boxSpring, boxApi] = useSpring(() =>
             onRestInfoRef.current.innerText = logMessage;
         }
         if (result.value.animationStarted) {
-            ctrl.start({ backgroundColor: getRandomRGBAColor(1) });
+            ctrl.start({ backgroundColor: getRandomRGBAColor(1)});
         }
     }
 }));
@@ -108,7 +108,7 @@ const handleClick = () => {
         boxApi.stop();
     } else {
         boxApi.set({ animationStarted: true });
-        boxApi.start({ backgroundColor: getRandomRGBAColor(1) });
+        boxApi.start({ backgroundColor: getRandomRGBAColor(1)});
     }
 };`;
 
@@ -183,3 +183,37 @@ const handleUnhover = (index: number) => {
         };
     });
 };`
+
+export const yourTurnCode = `import { animated, useSpring, useSprings } from "@react-spring/web";
+import {
+	exampleBoxStyle,
+	outputStyle
+} from "../../styles/blogStyles";
+import { useRef } from "react";
+
+export const Example7 = () => {
+	
+	const renderCountRef = useRef(0);
+	renderCountRef.current += 1;
+
+	return (
+		<section style={exampleBoxStyle(true)} id="example-7">
+			<p
+				style={{
+					fontSize: "1.4rem",
+					fontWeight: "bold",
+					marginBottom: "1rem",
+					color: "#333"
+				}}
+			>
+				Example 7: Your Animation
+			</p>
+
+            {/* Your code here */}
+
+			<span style={outputStyle}>
+				Render Count : {renderCountRef.current}
+			</span>
+		</section>
+	);
+};`;
