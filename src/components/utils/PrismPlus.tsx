@@ -9,7 +9,7 @@ import {
 	highlighterHeaderStyle
 } from "../../styles/syntaxHighlighterStyles";
 
-type PrismWCopyProps = {
+type PrismPlusProps = {
 	codeString: string | string[];
 	language?: string;
 	showLineNumbers?: boolean;
@@ -19,7 +19,7 @@ type PrismWCopyProps = {
 	options?: string[];
 };
 
-export const PrismWCopy = ({
+export const PrismPlus = ({
 	codeString,
 	language = "tsx",
 	showLineNumbers = true,
@@ -27,7 +27,7 @@ export const PrismWCopy = ({
 	codeStyle = nightOwl,
 	needsBottomMargin = false,
 	options
-}: PrismWCopyProps) => {
+}: PrismPlusProps) => {
 	const [copied, setCopied] = useState(false);
 	const [selectedOptionIndex, setSelectedOptionIndex] = useState(0);
 

@@ -6,7 +6,7 @@ import {
 } from "../../styles/blogStyles";
 import { yourTurnCode } from "../../utils/codeStrings";
 import { Example7 } from "../examples/Example7";
-import { PrismWCopy } from "../utils/PrismWCopy";
+import { PrismPlus } from "../utils/PrismPlus";
 
 export const PracticeSection = () => {
 	return (
@@ -59,7 +59,7 @@ export const PracticeSection = () => {
 				if you want to try it out there without downloading anything.
 			</p>
 			<Example7 />
-			<PrismWCopy
+			<PrismPlus
 				codeString={yourTurnCode}
 				language="tsx"
 				showLineNumbers

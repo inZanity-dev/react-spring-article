@@ -6,15 +6,13 @@ import {
 	liStyle,
 	ulStyle
 } from "../../styles/blogStyles";
-import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { Example0 } from "../examples/Example0";
 import {
 	animatedCode,
 	apiStartCode,
 	useSpringCode
 } from "../../utils/codeStrings";
-import { Prism } from "react-syntax-highlighter";
-import { PrismWCopy } from "../utils/PrismWCopy";
+import { PrismPlus } from "../utils/PrismPlus";
 
 export const IntroSection = () => {
 	return (
@@ -39,7 +37,7 @@ export const IntroSection = () => {
 				article, we will be using the web version. You can install it
 				with your package manager of choice by running:
 			</p>
-			<PrismWCopy
+			<PrismPlus
 				codeString={[
 					"bun install @react-spring/web",
 					"npm install @react-spring/web",
@@ -66,7 +64,7 @@ export const IntroSection = () => {
 				changes trigger a re-render.
 			</p>
 			<Example0 />
-			<PrismWCopy
+			<PrismPlus
 				codeString={useSpringCode}
 				language="tsx"
 				showLineNumbers
@@ -114,7 +112,7 @@ export const IntroSection = () => {
 					the methods.
 				</aside>
 			</section>
-			<PrismWCopy
+			<PrismPlus
 				codeString={apiStartCode}
 				language="tsx"
 				showLineNumbers
@@ -130,7 +128,7 @@ export const IntroSection = () => {
 				the properties we want to animate. In this case, we are changing
 				the background color of the box to a random color.
 			</p>
-			<PrismWCopy
+			<PrismPlus
 				codeString={animatedCode}
 				language="tsx"
 				showLineNumbers

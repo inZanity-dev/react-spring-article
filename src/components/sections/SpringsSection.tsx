@@ -9,7 +9,7 @@ import {
 	springsHandlerCode
 } from "../../utils/codeStrings";
 import { Example6 } from "../examples/Example6";
-import { PrismWCopy } from "../utils/PrismWCopy";
+import { PrismPlus } from "../utils/PrismPlus";
 export const SpringsSection = () => {
 	return (
 		<article id="multiple-springs" style={articleStyle}>
@@ -35,7 +35,7 @@ export const SpringsSection = () => {
 				to create and the properties of each spring.
 			</p>
 			<Example6 />
-			<PrismWCopy
+			<PrismPlus
 				codeString={multipleSpringsCode}
 				language="tsx"
 				showLineNumbers
@@ -61,7 +61,7 @@ export const SpringsSection = () => {
 				By checking the value of the key you can set the config for
 				specfic props.
 			</p>
-			<PrismWCopy
+			<PrismPlus
 				codeString={springsHandlerCode}
 				language="tsx"
 				showLineNumbers

@@ -9,7 +9,7 @@ import {
 import { Example1 } from "../examples/Example1";
 import { configAPICode, durationCode } from "../../utils/codeStrings";
 import { Example2 } from "../examples/Example2";
-import { PrismWCopy } from "../utils/PrismWCopy";
+import { PrismPlus } from "../utils/PrismPlus";
 
 export const ConfigSection = () => {
 	return (
@@ -39,7 +39,7 @@ export const ConfigSection = () => {
 				when the duration changes causing it to go back to blue.
 			</p>
 			<Example1 />
-			<PrismWCopy
+			<PrismPlus
 				codeString={durationCode}
 				language="tsx"
 				showLineNumbers
@@ -121,7 +121,7 @@ export const ConfigSection = () => {
 				</p>
 			</section>
 			<Example2 />
-			<PrismWCopy
+			<PrismPlus
 				codeString={configAPICode}
 				language="tsx"
 				showLineNumbers

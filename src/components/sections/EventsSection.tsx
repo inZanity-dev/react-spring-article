@@ -8,7 +8,7 @@ import {
 } from "../../styles/blogStyles";
 import { Example3 } from "../examples/Example3";
 import { complexAnimationCode, eventsCode } from "../../utils/codeStrings";
-import { PrismWCopy } from "../utils/PrismWCopy";
+import { PrismPlus } from "../utils/PrismPlus";
 import { Example4 } from "../examples/Example4";
 
 export const EventsSection = () => {
@@ -67,7 +67,7 @@ export const EventsSection = () => {
 				<code style={codeTagStyle}>onStart</code> is called after the
 				first animation tick, this value is therefore considered dirty.
 			</p>
-			<PrismWCopy
+			<PrismPlus
 				codeString={eventsCode}
 				language="tsx"
 				showLineNumbers
@@ -136,7 +136,7 @@ export const EventsSection = () => {
 				</p>
 			</section>
 			<Example4 />
-			<PrismWCopy
+			<PrismPlus
 				codeString={complexAnimationCode}
 				language="tsx"
 				showLineNumbers

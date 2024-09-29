@@ -9,7 +9,7 @@ import {
 	springStateCode
 } from "../../utils/codeStrings";
 import { Example5 } from "../examples/Example5";
-import { PrismWCopy } from "../utils/PrismWCopy";
+import { PrismPlus } from "../utils/PrismPlus";
 export const StateSection = () => {
 	return (
 		<article id="spring-state" style={articleStyle}>
@@ -33,14 +33,14 @@ export const StateSection = () => {
 				Spring but also the biggest change in mindset.
 			</p>
 			<Example5 />
-			<PrismWCopy
+			<PrismPlus
 				codeString={springStateCode}
 				language="tsx"
 				showLineNumbers
 				customStyle={highlighterStyle}
 				needsBottomMargin
 			/>
-			<PrismWCopy
+			<PrismPlus
 				codeString={springStateButtonCode}
 				language="tsx"
 				showLineNumbers
