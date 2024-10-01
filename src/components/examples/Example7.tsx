@@ -40,6 +40,7 @@ const Card = ({
         <animated.div
             style={{
                 ...style,
+                flipInProgress: false,
                 backgroundColor: backgroundColor,
                 position: 'relative',
                 width: '150px',
@@ -121,18 +122,20 @@ const AnimatedCards = () => {
                     transform: "rotateY(0deg)",
                     backgroundColor: "rgba(0,0,255,1)", 
                     color: "#fff",
+                    flipInProgress: false,
+
                     config: (key) => { 
                         if (key === "color") {
-                            return { duration: 0 };
+                            return { duration: 250 };
                         }
                         return { duration: 500 };
                     }
                 }));
 
                 const handleClick = () => {
-                    if (flipInProgressRef.current) return;
+                    if (cardSpring.flipInProgress.get()) return;
 
-                    flipInProgressRef.current = true;
+                    cardApi.set({ flipInProgress: true });
 
                     const newBackgroundColor = getRandomRGBAColor(1);
 
@@ -142,13 +145,13 @@ const AnimatedCards = () => {
                     });
 
                     cardApi.start({
+                        backgroundColor: newBackgroundColor,
+                        color: newTextColor,
                         transform: cardSpring.transform.get() === "rotateY(0deg)" 
                             ? "rotateY(180deg)" 
                             : "rotateY(0deg)",
-                        backgroundColor: newBackgroundColor,
-                        color: newTextColor,
                         onRest: () => {
-                            flipInProgressRef.current = false;
+                            cardApi.set({ flipInProgress: false });
                         },
                     });
                 };
