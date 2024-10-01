@@ -121,8 +121,11 @@ const AnimatedCards = () => {
                     transform: "rotateY(0deg)",
                     backgroundColor: "rgba(0,0,255,1)", 
                     color: "#fff",
-                    config: { 
-                        duration: 500
+                    config: (key) => { 
+                        if (key === "color") {
+                            return { duration: 50 };
+                        }
+                        return { duration: 500 };
                     }
                 }));
 
