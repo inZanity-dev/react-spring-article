@@ -116,8 +116,6 @@ const AnimatedCards = () => {
             }}
         >
             {cards.map((card, index) => {
-                const flipInProgressRef = useRef(false);
-
                 const [cardSpring, cardApi] = useSpring(() => ({
                     transform: "rotateY(0deg)",
                     backgroundColor: "rgba(0,0,255,1)", 
