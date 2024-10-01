@@ -123,7 +123,7 @@ const AnimatedCards = () => {
                     color: "#fff",
                     config: (key) => { 
                         if (key === "color") {
-                            return { duration: 50 };
+                            return { duration: 0 };
                         }
                         return { duration: 500 };
                     }
