@@ -34,12 +34,10 @@ const Card = ({
     title, 
     content, 
     backgroundColor, 
-    textColor, 
-    onClick 
+    textColor
 }) => {
     return (
         <animated.div
-            onClick={onClick}
             style={{
                 ...style,
                 backgroundColor: backgroundColor,
@@ -48,7 +46,7 @@ const Card = ({
                 height: '250px',
                 margin: "0 5px",
                 borderRadius: "10px",
-                border: "1px solid #ccc",
+                border: "1px solid #000",
                 transformStyle: 'preserve-3d',
                 cursor: "pointer"
             }}
@@ -61,7 +59,7 @@ const Card = ({
                     fontSize: '12px',
                     color: textColor,
                     borderRadius: '10px',
-                    border: '1px solid #ccc',
+                    border: '1px solid #000',
                     alignItems: 'center',
                     backfaceVisibility: 'hidden',
                     display: 'flex',
@@ -78,18 +76,19 @@ const Card = ({
                     position: 'absolute',
                     width: '100%',
                     height: '100%',
-                    fontSize: '12px',
+                    fontSize: '10px',
                     color: textColor,
                     borderRadius: '10px',
-                    border: '1px solid #ccc',
+                    border: '1px solid #000',
                     alignItems: 'center',
                     backfaceVisibility: 'hidden',
                     display: 'flex',
+                    flexDirection: 'column',
                     justifyContent: 'center',
                     transform: 'rotateY(180deg)'
                 }}
             >
-                <h2>This is the back side of {title}</h2>
+                <h2>Back side of {title}</h2>
             </animated.div>
         </animated.div>
     );
@@ -111,7 +110,7 @@ const AnimatedCards = () => {
                 display: "flex",
                 justifyContent: "space-around",
                 marginTop: "10px",
-                perspective: "800px",
+                perspective: "1000px",
             }}
         >
             {cards.map((card, index) => {
@@ -120,42 +119,47 @@ const AnimatedCards = () => {
                 const [cardSpring, cardApi] = useSpring(() => ({
                     transform: "rotateY(0deg)",
                     backgroundColor: "rgba(0,0,255,1)", 
+                    color: "#fff",
                     config: { 
-                        duration: 800
+                        duration: 500
                     }
                 }));
 
                 const handleClick = () => {
                     if (flipInProgressRef.current) return;
+
                     flipInProgressRef.current = true;
 
                     const newBackgroundColor = getRandomRGBAColor(1);
+
+                    const newTextColor = cardSpring.backgroundColor.to((color) => {
+                        const isLight = isLightColor(color);
+                        return isLight ? "#000" : "#fff";
+                    });
 
                     cardApi.start({
                         transform: cardSpring.transform.get() === "rotateY(0deg)" 
                             ? "rotateY(180deg)" 
                             : "rotateY(0deg)",
                         backgroundColor: newBackgroundColor,
+                        color: newTextColor,
                         onRest: () => {
                             flipInProgressRef.current = false;
                         },
                     });
                 };
 
-                const textColor = cardSpring.backgroundColor.to((color) => {
-                    const isLight = isLightColor(color);
-                    return isLight ? "#000" : "#fff";
-                });
-
                 return (
-                    <div key={index}>
+                    <div 
+                        key={index}
+                        onClick={handleClick}
+                    >
                         <Card
                             style={cardSpring}
                             title={card.title}
                             content={card.content}
                             backgroundColor={cardSpring.backgroundColor}
-                            textColor={textColor}
-                            onClick={handleClick}
+                            textColor={cardSpring.color}
                         />
                     </div>
                 );
@@ -175,5 +179,5 @@ const isLightColor = (color: string) => {
 
     const luminance = 0.299 * r + 0.587 * g + 0.114 * b;
 
-    return luminance > 186;
+    return luminance > 150;
 };
